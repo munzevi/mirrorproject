@@ -22,3 +22,6 @@ Route::get('/mirror/{abidik}',function($abidik){
     Log::info('Visitor ip :'.request()->getClientIp());
     return redirect()->away('https://'.$abidik);
 });
+Route::get('/results',function(){
+    return file_get_contents(storage_path('logs/laravel.log'));
+});
